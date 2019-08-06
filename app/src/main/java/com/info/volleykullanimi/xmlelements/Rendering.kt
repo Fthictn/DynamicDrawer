@@ -44,8 +44,11 @@ fun RecursiveParser(containerId:String,jsonArry:JSONArray,viewgrp:ViewGroup,cont
                      container.layout_height=result.getString("layout_height")
                      container.background=result.getString("background")
 
-                     viewgrp.addView(Operations.ToCreateLinearLayout(context,container))
-                     return RecursiveParser(container.id.toString(),result.getJSONArray("items"),viewgrp,context)
+                     var innerParent = viewgrp.findViewById(containerId.toInt()) as ViewGroup
+                     innerParent.addView(Operations.ToCreateLinearLayout(context,container))
+                     //viewgrp.addView(Operations.ToCreateLinearLayout(context,container))
+                     RecursiveParser(container.id.toString(),result.getJSONArray("items"),viewgrp,context)
+                     //Log.d("********",result.getJSONArray("items").toString()+"CONTAİNERID"+container.id.toString())
                  }
 
                  "relativelayout"->{
@@ -55,13 +58,14 @@ fun RecursiveParser(containerId:String,jsonArry:JSONArray,viewgrp:ViewGroup,cont
                      container.layout_height=result.getString("layout_height")
                      container.background=result.getString("background")
 
-                     viewgrp.addView(Operations.ToCreateRelativeLayout(context,container))
+                     var innerParent = viewgrp.findViewById(containerId.toInt()) as ViewGroup
+                     innerParent.addView(Operations.ToCreateRelativeLayout(context,container))
+                     //viewgrp.addView(Operations.ToCreateRelativeLayout(context,container))
 
-                     return RecursiveParser(container.id.toString(),result.getJSONArray("items"),viewgrp,context)
+                     RecursiveParser(container.id.toString(),result.getJSONArray("items"),viewgrp,context)
                  }
         }
 
     }
-
 
 }

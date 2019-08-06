@@ -19,6 +19,11 @@ class AutoLinearLayout{
     var gravity:Int?=null
     var weightSum:Float?=null
     var background:String?=null
+    var layout_marginLeft:String?=null
+    var layout_marginRight:String?=null
+    var layout_marginTop:String?=null
+    var layout_marginBottom:String?=null
+
 }
 
 class AutoRelativeLayout{
@@ -27,6 +32,10 @@ class AutoRelativeLayout{
     var layout_height:String?=null
     var gravity:Int?=null
     var background:String?=null
+    var layout_marginLeft:String?=null
+    var layout_marginRight:String?=null
+    var layout_marginTop:String?=null
+    var layout_marginBottom:String?=null
 }
 
 class AutoButton{
@@ -35,6 +44,11 @@ class AutoButton{
     var height:Int?=null
     var text:String?=null
     var background:String?=null
+    var textColor:String?=null
+    var layout_marginLeft:String?=null
+    var layout_marginRight:String?=null
+    var layout_marginTop:String?=null
+    var layout_marginBottom:String?=null
 }
 
 class AutoTextview{
@@ -44,6 +58,11 @@ class AutoTextview{
     var text:String?=null
     var textSize:Float?=null
     var background:String?=null
+    var textColor:String?=null
+    var layout_marginLeft:String?=null
+    var layout_marginRight:String?=null
+    var layout_marginTop:String?=null
+    var layout_marginBottom:String?=null
 }
 
 class AutoEditText{
@@ -51,6 +70,11 @@ class AutoEditText{
     var layout_width:String?=null
     var layout_height:String?=null
     var background:String?=null
+    var textColor:String?=null
+    var layout_marginLeft:String?=null
+    var layout_marginRight:String?=null
+    var layout_marginTop:String?=null
+    var layout_marginBottom:String?=null
 }
 
 //ArrayList<id,View v> =
@@ -76,7 +100,10 @@ class Operations{
             if(toDraw.width!=null && toDraw.height!=null){
                 buttonToDraw.layoutParams = ViewGroup.LayoutParams(toDraw.width!!,toDraw.height!!)
             }
-
+            toDraw.textColor?.let {
+                buttonToDraw.setTextColor(Color.parseColor("#ff0000"))
+            }
+            buttonToDraw.layout(10,10,10,10)
 
             //myItems.put(it,buttonToDraw)
             return buttonToDraw
@@ -100,6 +127,9 @@ class Operations{
             }
             if(toDraw.width!=null && toDraw.height!=null){
                 textviewToDraw.layoutParams = ViewGroup.LayoutParams(toDraw.width!!,toDraw.height!!)
+            }
+            toDraw.textColor?.let {
+                textviewToDraw.setTextColor(Color.parseColor("#ff0000"))
             }
 
             return textviewToDraw
@@ -204,6 +234,9 @@ class Operations{
             }
             toDraw.background?.let {
                 edittextToDraw.setBackgroundColor(Color.YELLOW)
+            }
+            toDraw.textColor?.let {
+                edittextToDraw.setTextColor(Color.parseColor("#ff0000"))
             }
 
             if (toDraw.layout_width == "WRAP_CONTENT" && toDraw.layout_height == "WRAP_CONTENT") {

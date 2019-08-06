@@ -34,14 +34,12 @@ import java.util.HashMap
 class MainActivity : AppCompatActivity() {
      lateinit var url_nested:String
      lateinit var rq:RequestQueue
-     var root_linear:AutoLinearLayout= AutoLinearLayout()
-     var root_relative:AutoRelativeLayout= AutoRelativeLayout()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         rq=Volley.newRequestQueue(this)
-        url_nested="http://www.mocky.io/v2/5d48090e3300009287a3ecb0"
+        url_nested="http://www.mocky.io/v2/5d49909a320000e27d600dc3"
         CustomRenderer(rq,url_nested,applicationContext)
         //val txt:TextView= TextView(baseContext)
 
@@ -55,8 +53,8 @@ class MainActivity : AppCompatActivity() {
                    var values=o.getJSONArray("ToRender")
                    val firstParent = this.findViewById(R.id.alertTitle) as ViewGroup
                    firstParent.removeAllViews()
-                    var str:String= String()
-                   RecursiveParser(str,values,firstParent,context)
+
+                   RecursiveParser(firstParent.id.toString(),values,firstParent,context)
 
                }catch (ex:JsonParseException){
                     Log.d("EXCEPTİON",ex.toString())
