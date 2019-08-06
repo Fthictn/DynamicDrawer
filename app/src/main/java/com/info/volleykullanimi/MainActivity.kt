@@ -20,6 +20,7 @@ import org.json.JSONObject
 import kotlin.math.log
 import android.util.Log
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
@@ -28,6 +29,7 @@ import com.google.gson.*
 import com.google.gson.reflect.TypeToken
 import com.info.volleykullanimi.xmlelements.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.HashMap
 
 class MainActivity : AppCompatActivity() {
      lateinit var url_nested:String
@@ -51,10 +53,10 @@ class MainActivity : AppCompatActivity() {
 
                    var o=JSONObject(response)
                    var values=o.getJSONArray("ToRender")
-                   val finalParent = this.findViewById(R.id.alertTitle) as ViewGroup
-                   finalParent.removeAllViews()
-
-                   RecursiveParser(values,finalParent,context)
+                   val firstParent = this.findViewById(R.id.alertTitle) as ViewGroup
+                   firstParent.removeAllViews()
+                    var str:String= String()
+                   RecursiveParser(str,values,firstParent,context)
 
                }catch (ex:JsonParseException){
                     Log.d("EXCEPTİON",ex.toString())
