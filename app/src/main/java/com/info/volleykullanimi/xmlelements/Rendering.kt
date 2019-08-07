@@ -43,12 +43,19 @@ fun RecursiveParser(containerId:String,jsonArry:JSONArray,viewgrp:ViewGroup,cont
                      container.layout_width=result.getString("layout_width")
                      container.layout_height=result.getString("layout_height")
                      container.background=result.getString("background")
-
+                     Log.d("ORİENTATİON----->",result.getString("orientation").toString())
+                     if(result.getString("orientation").toString()=="HORIZONTAL"){
+                         container.orientation=LinearLayout.HORIZONTAL
+                     }
+                     if(result.getString("orientation").toString()=="VERTICAL"){
+                         container.orientation=LinearLayout.VERTICAL
+                     }
+                     Log.d("ORİENTATİONU--->",container.orientation.toString())
                      var innerParent = viewgrp.findViewById(containerId.toInt()) as ViewGroup
                      innerParent.addView(Operations.ToCreateLinearLayout(context,container))
                      //viewgrp.addView(Operations.ToCreateLinearLayout(context,container))
                      RecursiveParser(container.id.toString(),result.getJSONArray("items"),viewgrp,context)
-                     //Log.d("********",result.getJSONArray("items").toString()+"CONTAİNERID"+container.id.toString())
+                     //Log.d("********","CONTAİNERID -->"+containerId.toString()+"\t")
                  }
 
                  "relativelayout"->{

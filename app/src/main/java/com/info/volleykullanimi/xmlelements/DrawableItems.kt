@@ -103,7 +103,6 @@ class Operations{
             toDraw.textColor?.let {
                 buttonToDraw.setTextColor(Color.parseColor("#ff0000"))
             }
-            buttonToDraw.layout(10,10,10,10)
 
             //myItems.put(it,buttonToDraw)
             return buttonToDraw
@@ -142,9 +141,6 @@ class Operations{
             toDraw.id?.let {
                 linearlayoutToDraw.id = it
             }
-            toDraw.orientation?.let {
-                linearlayoutToDraw.orientation = it
-            }
             toDraw.background?.let {
                 linearlayoutToDraw.setBackgroundColor(Color.CYAN)
             }
@@ -155,6 +151,14 @@ class Operations{
             toDraw.weightSum?.let {
                 linearlayoutToDraw.weightSum = it
             }
+
+            if(toDraw.orientation.toString()=="VERTICAL"){
+                linearlayoutToDraw.orientation=LinearLayout.VERTICAL
+            }
+            else if(toDraw.orientation.toString()=="HORIZONTAL"){
+                linearlayoutToDraw.orientation=LinearLayout.HORIZONTAL
+            }
+
             if (toDraw.layout_width == "WRAP_CONTENT" && toDraw.layout_height == "WRAP_CONTENT") {
                 linearlayoutToDraw.layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,

@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         rq=Volley.newRequestQueue(this)
-        url_nested="http://www.mocky.io/v2/5d49909a320000e27d600dc3"
+        url_nested="http://www.mocky.io/v2/5d4a825f3300005b000f5d4b"
         CustomRenderer(rq,url_nested,applicationContext)
         //val txt:TextView= TextView(baseContext)
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                    var values=o.getJSONArray("ToRender")
                    val firstParent = this.findViewById(R.id.alertTitle) as ViewGroup
                    firstParent.removeAllViews()
-
+                    //Log.d("PARENTID--->",firstParent.id.toString())
                    RecursiveParser(firstParent.id.toString(),values,firstParent,context)
 
                }catch (ex:JsonParseException){
