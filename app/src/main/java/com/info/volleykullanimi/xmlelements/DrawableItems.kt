@@ -15,7 +15,7 @@ class AutoLinearLayout{
     var component_id:String?=null
     var layout_width: String?=null
     var layout_height:String?=null
-    var orientation:Int?=null
+    var orientation:String?=null
     var gravity:Int?=null
     var weightSum:Float?=null
     var background:String?=null
@@ -152,10 +152,10 @@ class Operations{
                 linearlayoutToDraw.weightSum = it
             }
 
-            if(toDraw.orientation.toString()=="VERTICAL"){
+            if(toDraw.orientation=="VERTICAL"){
                 linearlayoutToDraw.orientation=LinearLayout.VERTICAL
             }
-            else if(toDraw.orientation.toString()=="HORIZONTAL"){
+            else if(toDraw.orientation=="HORIZONTAL"){
                 linearlayoutToDraw.orientation=LinearLayout.HORIZONTAL
             }
 

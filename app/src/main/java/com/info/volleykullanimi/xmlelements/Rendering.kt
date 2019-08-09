@@ -42,15 +42,8 @@ fun RecursiveParser(containerId:String,jsonArry:JSONArray,viewgrp:ViewGroup,cont
                      container.id=result.getString("id").toInt()
                      container.layout_width=result.getString("layout_width")
                      container.layout_height=result.getString("layout_height")
+                     container.orientation=result.getString("orientation")
                      container.background=result.getString("background")
-                     Log.d("ORİENTATİON----->",result.getString("orientation").toString())
-                     if(result.getString("orientation").toString()=="HORIZONTAL"){
-                         container.orientation=LinearLayout.HORIZONTAL
-                     }
-                     if(result.getString("orientation").toString()=="VERTICAL"){
-                         container.orientation=LinearLayout.VERTICAL
-                     }
-                     Log.d("ORİENTATİONU--->",container.orientation.toString())
                      var innerParent = viewgrp.findViewById(containerId.toInt()) as ViewGroup
                      innerParent.addView(Operations.ToCreateLinearLayout(context,container))
                      //viewgrp.addView(Operations.ToCreateLinearLayout(context,container))
