@@ -44,6 +44,7 @@ fun RecursiveParser(containerId:String,jsonArry:JSONArray,viewgrp:ViewGroup,cont
                      container.layout_height=result.getString("layout_height")
                      container.orientation=result.getString("orientation")
                      container.background=result.getString("background")
+
                      var innerParent = viewgrp.findViewById(containerId.toInt()) as ViewGroup
                      innerParent.addView(Operations.ToCreateLinearLayout(context,container))
                      //viewgrp.addView(Operations.ToCreateLinearLayout(context,container))
@@ -65,7 +66,6 @@ fun RecursiveParser(containerId:String,jsonArry:JSONArray,viewgrp:ViewGroup,cont
                      RecursiveParser(container.id.toString(),result.getJSONArray("items"),viewgrp,context)
                  }
         }
-
     }
 
 }

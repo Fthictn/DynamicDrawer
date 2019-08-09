@@ -164,6 +164,7 @@ class Operations{
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
                 )
+
             }
             if (toDraw.layout_width == "MATCH_PARENT" && toDraw.layout_height == "MATCH_PARENT") {
                 linearlayoutToDraw.layoutParams = LinearLayout.LayoutParams(
@@ -183,6 +184,16 @@ class Operations{
                     LinearLayout.LayoutParams.MATCH_PARENT
                 )
             }
+            var layoutparams=linearlayoutToDraw.layoutParams as LinearLayout.LayoutParams
+
+            /*layoutparams.setMargins(
+                toDraw.layout_marginLeft!!.toInt(),
+                toDraw.layout_marginTop!!.toInt(),
+                toDraw.layout_marginRight!!.toInt(),
+                toDraw.layout_marginBottom!!.toInt()
+            )*/
+
+            layoutparams.setMargins(30,30,30,30)
 
             return linearlayoutToDraw
         }
