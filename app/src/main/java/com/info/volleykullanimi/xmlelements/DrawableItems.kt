@@ -23,7 +23,6 @@ class AutoLinearLayout{
     var layout_marginRight:String?=null
     var layout_marginTop:String?=null
     var layout_marginBottom:String?=null
-
 }
 
 class AutoRelativeLayout{
@@ -131,6 +130,7 @@ class Operations{
                 textviewToDraw.setTextColor(Color.parseColor("#ff0000"))
             }
 
+
             return textviewToDraw
         }
 
@@ -186,14 +186,14 @@ class Operations{
             }
             var layoutparams=linearlayoutToDraw.layoutParams as LinearLayout.LayoutParams
 
-            /*layoutparams.setMargins(
+            layoutparams.setMargins(
                 toDraw.layout_marginLeft!!.toInt(),
                 toDraw.layout_marginTop!!.toInt(),
                 toDraw.layout_marginRight!!.toInt(),
                 toDraw.layout_marginBottom!!.toInt()
-            )*/
+            )
 
-            layoutparams.setMargins(30,30,30,30)
+            //layoutparams.setMargins(30,30,30,30)
 
             return linearlayoutToDraw
         }
@@ -210,7 +210,17 @@ class Operations{
             }
             toDraw.background?.let {
                 relativelayoutToDraw.setBackgroundColor(Color.BLACK)
-        }
+            }
+
+            var layoutparams=relativelayoutToDraw.layoutParams as LinearLayout.LayoutParams
+
+            layoutparams.setMargins(
+                toDraw.layout_marginLeft!!.toInt(),
+                toDraw.layout_marginTop!!.toInt(),
+                toDraw.layout_marginRight!!.toInt(),
+                toDraw.layout_marginBottom!!.toInt()
+            )
+
             if (toDraw.layout_width == "WRAP_CONTENT" && toDraw.layout_height == "WRAP_CONTENT") {
                 relativelayoutToDraw.layoutParams = RelativeLayout.LayoutParams(
                     RelativeLayout.LayoutParams.WRAP_CONTENT,

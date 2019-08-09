@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         rq=Volley.newRequestQueue(this)
-        url_nested="http://www.mocky.io/v2/5d4d52d4330000254b337752"
+        url_nested="http://www.mocky.io/v2/5d4d6bf93300003e3a337816"
         CustomRenderer(rq,url_nested,applicationContext)
         //val txt:TextView= TextView(baseContext)
 

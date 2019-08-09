@@ -44,6 +44,12 @@ fun RecursiveParser(containerId:String,jsonArry:JSONArray,viewgrp:ViewGroup,cont
                      container.layout_height=result.getString("layout_height")
                      container.orientation=result.getString("orientation")
                      container.background=result.getString("background")
+                     container.layout_marginLeft=result.getString("layout_marginLeft")
+                     container.layout_marginTop=result.getString("layout_marginTop")
+                     container.layout_marginRight=result.getString("layout_marginRight")
+                     container.layout_marginBottom=result.getString("layout_marginBottom")
+
+                     Log.d("BACKGROUND------->",result.getString("layout_marginLeft"))
 
                      var innerParent = viewgrp.findViewById(containerId.toInt()) as ViewGroup
                      innerParent.addView(Operations.ToCreateLinearLayout(context,container))
@@ -58,6 +64,10 @@ fun RecursiveParser(containerId:String,jsonArry:JSONArray,viewgrp:ViewGroup,cont
                      container.layout_width=result.getString("layout_width")
                      container.layout_height=result.getString("layout_height")
                      container.background=result.getString("background")
+                     container.layout_marginLeft=result.getString("layout_marginLeft")
+                     container.layout_marginTop=result.getString("layout_marginTop")
+                     container.layout_marginRight=result.getString("layout_marginRight")
+                     container.layout_marginBottom=result.getString("layout_marginBottom")
 
                      var innerParent = viewgrp.findViewById(containerId.toInt()) as ViewGroup
                      innerParent.addView(Operations.ToCreateRelativeLayout(context,container))
