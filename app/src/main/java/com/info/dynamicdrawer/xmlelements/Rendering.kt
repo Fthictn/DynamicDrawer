@@ -48,14 +48,10 @@ fun RecursiveParser(containerId:String,jsonArry:JSONArray,viewgrp:ViewGroup,cont
                      container.layout_marginTop=result.getString("layout_marginTop")
                      container.layout_marginRight=result.getString("layout_marginRight")
                      container.layout_marginBottom=result.getString("layout_marginBottom")
-
                      Log.d("BACKGROUND------->",result.getString("layout_marginLeft"))
-
                      var innerParent = viewgrp.findViewById(containerId.toInt()) as ViewGroup
                      innerParent.addView(Operations.ToCreateLinearLayout(context,container))
-                     //viewgrp.addView(Operations.ToCreateLinearLayout(context,container))
                      RecursiveParser(container.id.toString(),result.getJSONArray("items"),viewgrp,context)
-                     //Log.d("********","CONTAİNERID -->"+containerId.toString()+"\t")
                  }
 
                  "relativelayout"->{
@@ -68,11 +64,8 @@ fun RecursiveParser(containerId:String,jsonArry:JSONArray,viewgrp:ViewGroup,cont
                      container.layout_marginTop=result.getString("layout_marginTop")
                      container.layout_marginRight=result.getString("layout_marginRight")
                      container.layout_marginBottom=result.getString("layout_marginBottom")
-
                      var innerParent = viewgrp.findViewById(containerId.toInt()) as ViewGroup
                      innerParent.addView(Operations.ToCreateRelativeLayout(context,container))
-                     //viewgrp.addView(Operations.ToCreateRelativeLayout(context,container))
-
                      RecursiveParser(container.id.toString(),result.getJSONArray("items"),viewgrp,context)
                  }
         }
